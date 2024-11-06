@@ -9,10 +9,15 @@ const taskSlice = createSlice({
         storeTask: (state, action) => {
             const task = {id: nanoid(), task: action.payload}
             state.tasks.push(task)
+        },
+
+        removeTask: (state, action) => {
+           const idNeedToRemoveTask = action.payload
+            state.tasks = state.tasks.filter(task => task.id !== idNeedToRemoveTask)
         }
     }
 })
 
-export const {storeTask} = taskSlice.actions
+export const {storeTask, removeTask} = taskSlice.actions
 
 export default taskSlice.reducer

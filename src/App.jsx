@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {storeTask} from "./utlities/state/taskSlice.js";
+import {storeTask, removeTask} from "./utlities/state/taskSlice.js";
 import {useDispatch, useSelector} from "react-redux";
 
 const App = () => {
@@ -44,7 +44,7 @@ const App = () => {
         {alreadyAddTask.length > 0 && alreadyAddTask.map((task) => (
             <div key={task.id}>
               <p className='inline'>{task.task}</p>
-              <button className='inline ml-4 border border-red-500 m-1 p-1'>Remove</button>
+              <button onClick={() => dispatch(removeTask(task.id))} className='inline ml-4 border border-red-500 m-1 p-1'>Remove</button>
             </div>
         ))}
       </div>
