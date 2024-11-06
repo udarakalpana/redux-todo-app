@@ -12,6 +12,8 @@ const App = () => {
 
   const addTask = () => {
     dispatch(storeTask(task))
+
+    setTask('')
   }
 
   return (
@@ -24,7 +26,7 @@ const App = () => {
           >
             Your Task
           </label>
-          <input type="text" name='task' onChange={handleInput} className="input_field" />
+          <input type="text" name='task' value={task} onChange={handleInput} className="input_field" />
         </div>
         <div className="mt-4">
           <button
