@@ -1,14 +1,17 @@
 import {useState} from "react";
+import {storeTask} from "./utlities/state/taskSlice.js";
+import {useDispatch} from "react-redux";
 
 const App = () => {
   const [task, setTask] = useState('')
+  const dispatch = useDispatch()
 
   const handleInput = (event) => {
     setTask(event.target.value)
   }
 
   const addTask = () => {
-    console.log(task)
+    dispatch(storeTask(task))
   }
 
   return (
